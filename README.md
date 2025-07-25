@@ -110,7 +110,7 @@ cd onchain-bot
 ### 6. Download arb-assist
 
 ```bash
-wget https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/arb-assist
+wget https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries
 wget https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/config.toml.example
 ```
 
@@ -359,7 +359,7 @@ ctrl+c
 Next, use the wget command with the overwrite flag:
 
 ```bash
-wget -O arb-assist https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/arb-assist
+wget -O arb-assist https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries
 ```
 
 The old version of arb-assist will be replaced.
