@@ -1,0 +1,11 @@
+{
+  "cu_limit": 320002,
+  "jito_cooldown ": 350,
+  "jito_enabled": true,
+  "jito_max_tip ": 60000,
+  "jito_min_tip": 28305,
+  "spam_cooldown": 350,
+  "spam_enabled": true,
+  "spam_max_fee": 32000,
+  "spam_min_fee": 11385
+}
