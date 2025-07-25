@@ -111,18 +111,21 @@ cd onchain-bot
 
 ```bash
 wget -O patched-arb_aarch64-linux-musl https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_aarch64-linux-musl
+chmod +x patched-arb_aarch64-linux-musl
 ```
 
 OR
 
 ```bash
 wget -O patched-arb_x86_64-linux-glibc https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_x86_64-linux-glibc
+chmod +x patched-arb_x86_64-linux-glibc
 ```
 
 OR
 
 ```bash
 wget -O patched-arb_x86_64-linux-musl https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_x86_64-linux-musl
+chmod +x patched-arb_x86_64-linux-musl
 ```
 
 ```bash
@@ -375,18 +378,21 @@ Next, use the wget command with the overwrite flag:
 
 ```bash
 wget -O patched-arb_aarch64-linux-musl https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_aarch64-linux-musl
+chmod +x patched-arb_aarch64-linux-musl
 ```
 
 OR
 
 ```bash
 wget -O patched-arb_x86_64-linux-glibc https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_x86_64-linux-glibc
+chmod +x patched-arb_x86_64-linux-glibc
 ```
 
 OR
 
 ```bash
 wget -O patched-arb_x86_64-linux-musl https://github.com/wakeupwakeupwakeup/arb-assist-patched/raw/refs/heads/main/binaries/patched-arb_x86_64-linux-musl
+chmod +x patched-arb_x86_64-linux-musl
 ```
 
 The old version of arb-assist will be replaced.
