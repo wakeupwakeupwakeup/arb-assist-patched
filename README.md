@@ -4,6 +4,10 @@ This software is a patched version of [Arb-Assist](https://github.com/capicua445
 
 - 🛠️ U just need to run `./run.sh` or `sh run.sh` and it will generate the config for you. 🛠️
 
+If the script does not start, run the required binary file yourself, for example:
+
+- `./binaries/patched-arb_x86_64-linux-musl`
+
 # Buy me a coffee
 
 Solana: FBhS1a57H6MnHAVcu3MntF1tj8MkGnrvo7nFWc49rgKE
