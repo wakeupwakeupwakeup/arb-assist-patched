@@ -8,6 +8,20 @@ If the script does not start, run the required binary file yourself, for example
 
 - `./binaries/patched-arb_x86_64-linux-musl`
 
+---
+
+## 📦 Supported Platforms
+
+The build script automatically detects your platform and creates optimized binaries for multiple architectures:
+
+### 🐧 Linux Distributions
+
+| Binary                           | Target                     | Description                                                                                           |
+| -------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `patched-arb_x86_64-linux-musl`  | x86_64-unknown-linux-musl  | **Universal Linux** - Compatible with most distributions (Ubuntu, Debian, CentOS, Fedora, Arch, etc.) |
+| `patched-arb_aarch64-linux-musl` | aarch64-unknown-linux-musl | **ARM 64-bit** - For ARM-based systems (Raspberry Pi 4, ARM servers)                                  |
+| `patched-arb_x86_64-linux-glibc` | x86_64-unknown-linux-gnu   | **Modern Linux** - For systems with glibc (Ubuntu 20+, Debian 11+, etc.)                              |
+
 # Our Discord
 
 If you have any questions, please join our Discord: https://discord.gg/9HNfg2MS4y
