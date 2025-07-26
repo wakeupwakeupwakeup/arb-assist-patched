@@ -38,8 +38,6 @@ It can also generate the config, markets.json, and lookup-tables.json files for 
 
 It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
-For support, join us on [Discord](https://discord.gg/ADtnjdy5m5)
-
 ## 🕹️ Features:
 
 - 📈 Auto Bot Control: Turn your bot on when markets pump, off when they cool down.,
