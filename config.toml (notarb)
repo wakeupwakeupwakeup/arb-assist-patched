@@ -74,8 +74,6 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # top_pool_num: Number of top pools to include *Must be 2 or more (u64)
 filter_thresholds = [
   {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 1_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 10_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_002, top_pool_num = 3, memo = "2", min_profit = 100_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
 ]
 ### You can set different number of levels for spam, jito, fast, nextblock, etc. "filter_level" is the index (starts at 0) of the filter_threshold at which a particular strategy is triggered
 
@@ -84,7 +82,7 @@ filter_thresholds = [
 # Define which bundle groups you want to enable spam on
 # CU price strategy: Random / Linear / Exponential
 spam_levels = [
-  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 0, max_cu_percentile = 00, min_cu_price = 0, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
 ]
 
 # Jito Configuration
@@ -95,8 +93,7 @@ spam_levels = [
 # "OneByOne" or "AllAtOnce"
 # Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
 jito_levels = [
-  {filter_level = 0, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 25, max_tip_percentile = 50, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
-  {filter_level = 1, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 3_000, max_tip = 12_000, min_tip_percentile = 50, max_tip_percentile = 75, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
 ]
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
