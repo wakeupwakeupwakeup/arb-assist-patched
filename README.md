@@ -1,6 +1,6 @@
 # DEV
 
-This software is a patched version of [Arb-Assist](https://github.com/capicua4454/arb-assist). This release does not require a license and is up-to-date as of 25.07.2025.
+This software is a patched version of [Arb-Assist](https://github.com/capicua4454/arb-assist). This release does not require a license and is up-to-date as of 26.07.2025.
 
 - 🛠️ U just need to run `./run.sh` or `sh run.sh` and it will generate the config for you. 🛠️
 
