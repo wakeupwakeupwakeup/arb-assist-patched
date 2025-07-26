@@ -24,18 +24,6 @@ filter_programs = true                             # If true, only include trans
 arb_programs = [
   "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
   "NA247a7YE9S3p9CdKmMyETx8TTwbSdVbVYHHxpnHTUV",    # NotArb
-#  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
-#  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",   # NotArb
-#  "NA365bsPdvZ8sP58qJ5QFg7eXygCe8aPRRxR9oeMbR5",    # NotArb
-#  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",   # RM4 (Example)
-#  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",    # 7dGr (Example)
-#  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2",   # CKWX (Example)
-#  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L",   # CG8n (Example)
-#  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh",   # CzYQ (Example)
-#  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY",    # E8bT (Example)
-#  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM",   # EVyb (Example)
-#  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",   # HxkT (Example)
-#  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",   # 3pjW (Example)
 ]
 exclude_mints = [                                 # Intermedium mints to exclude
   "So11111111111111111111111111111111111111112",
@@ -51,7 +39,7 @@ ignore_filters = false
 include_token2022 = false                           # Include Token2022
 
 # Number of mints from rank list to choose for arb for each transaction
-mints_to_arb = [2, 2, 2, 2, 2]
+mints_to_arb = [2, 0, 0, 0, 0]
 mints_to_rank = 20                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 
 # pool_age is the time in milliseconds elapsed from when the newest pool for a mint was first detected
@@ -77,8 +65,6 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # top_pool_num: Number of top pools to include *Must be 2 or more (u64)
 filter_thresholds = [
   {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 1_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 10_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_002, top_pool_num = 3, memo = "2", min_profit = 100_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
 ]
 ### You can set different number of levels for spam, jito, fast, nextblock, etc. "filter_level" is the index (starts at 0) of the filter_threshold at which a particular strategy is triggered
 
@@ -87,7 +73,7 @@ filter_thresholds = [
 # Define which bundle groups you want to enable spam on
 # CU price strategy: Random / Linear / Exponential
 spam_levels = [
-  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 0, max_cu_percentile = 99, min_cu_price = 0, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
 ]
 
 # Jito Configuration
@@ -98,28 +84,11 @@ spam_levels = [
 # "OneByOne" or "AllAtOnce"
 # Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
 jito_levels = [
-  {filter_level = 0, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 25, max_tip_percentile = 50, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
-  {filter_level = 1, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 3_000, max_tip = 12_000, min_tip_percentile = 50, max_tip_percentile = 75, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
 ]
 
 fast_levels = [
-  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-]
-
-astralane_levels = [
-  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 150_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-]
-nextblock_levels = [
-  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-]
-node1_levels = [
-  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 2_000_000, max_tip = 3_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-]
-blockrazor_levels = [
-  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 120_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 150_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 180_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 0, max_cu_price = 1_000, fee_strategy = "Random" },
 ]
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
